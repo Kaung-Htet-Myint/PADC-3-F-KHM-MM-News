@@ -1,6 +1,6 @@
 package khm.kaunghtetmyint.news.data.vo;
 
-import org.w3c.dom.Comment;
+import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
@@ -10,14 +10,20 @@ import java.util.List;
 
 public class NewsVO {
 
+    @SerializedName("news-id")
     private String newsID;
+
     private String brief;
     private String details;
     private List<String> images;
+
+    @SerializedName("posted-date")
     private String postedDate;
     private PublicationVO publication;
-    private FavoriteVO[] favorties;
+    private List<FavoriteVO> favorties;
     private List<CommentVO> comments;
+
+    @SerializedName("sent-tos")
     private List<SendToVO> sendTo;
 
     public List<String> getImages() {
@@ -55,7 +61,7 @@ public class NewsVO {
         return publication;
     }
 
-    public FavoriteVO[] getFavorties() {
+    public List<FavoriteVO> getFavorties() {
         return favorties;
     }
 

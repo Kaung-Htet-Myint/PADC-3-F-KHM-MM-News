@@ -9,4 +9,18 @@ public class PublicationVO {
     private String publicationId;
     private String title;
     private String logo;
+
+    public String getPublicationId() {
+        return publicationId;
+    }
+
+    public String getLogo() {
+        return logo;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+
 }
