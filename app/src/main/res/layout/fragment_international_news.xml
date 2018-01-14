@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+   <!--&ndash;&gt; &lt;!&ndash;<TextView&ndash;&gt;-->
+    <!--&lt;!&ndash;android:id="@+id/tv_international_news"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:layout_width="wrap_content"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:layout_height="wrap_content"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:text="International News Fragment"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:layout_centerInParent="true"&ndash;&gt;-->
+    <!--&lt;!&ndash;android:textSize="24sp"/>-->
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rv_news_by_category"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+</RelativeLayout>

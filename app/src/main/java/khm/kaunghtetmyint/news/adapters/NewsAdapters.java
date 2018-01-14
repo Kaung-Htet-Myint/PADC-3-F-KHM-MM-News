@@ -31,7 +31,11 @@ public class NewsAdapters extends RecyclerView.Adapter<ItemNewsViewHolder> {
     public ItemNewsViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         Context context = parent.getContext();
         LayoutInflater inflater = LayoutInflater.from(context);
+
         View newsItemView=  inflater.inflate(R.layout.item_news, parent,false);
+
+
+
         ItemNewsViewHolder itemNewsViewHolder = new ItemNewsViewHolder(newsItemView,mNewActionDelegate);
         return itemNewsViewHolder;
     }
@@ -44,6 +48,12 @@ public class NewsAdapters extends RecyclerView.Adapter<ItemNewsViewHolder> {
     @Override
     public int getItemCount() {
         return mNewsList.size();
+    }
+
+    @Override
+    public long getItemId(int position) {
+
+        return super.getItemId(position);
     }
 
     public void setNews(List<NewsVO> newsList){

@@ -39,20 +39,23 @@ public class ItemNewsViewHolder extends RecyclerView.ViewHolder {
     @BindView(R.id.iv_news)
     ImageView ivNews;
 
+    private NewsVO mNews;
+
     public ItemNewsViewHolder(View itemView, NewsActionDelegate newsActionDelegate) {
         super(itemView);
         ButterKnife.bind(this,itemView);
-
         mNewsActionDelegate = newsActionDelegate;
     }
 
     @OnClick(R.id.cv_news_item_root)
-    public void onNewsItemTap(View view){
+        public void onNewsItemTap(View view){
 //        Toast.makeText(view.getContext(), "News Item Clicked",Toast.LENGTH_LONG).show();
-        mNewsActionDelegate.onTapNewsItem();
+        mNewsActionDelegate.onTapNewsItem(mNews);
     }
 
     public void setNews(NewsVO news){
+        mNews =  news;
+
         tvPublicationTitle.setText(news.getPublication().getTitle());
         tvPostedDate.setText(news.getPostedDate());
         tvNewsBreif.setText(news.getBrief());

@@ -32,12 +32,10 @@ public class RetrofitDataAgent implements NewsDataAgent {
                 .build();
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://padcmyanmar.com/padc-3/mm-news/apis/v1")
+                .baseUrl("http://padcmyanmar.com/padc-3/mm-news/apis/v1/")
                 .addConverterFactory(GsonConverterFactory.create(new Gson()))
                 .client(okHttpClient)
                 .build();
-
-      //  final NewsApi newsApi = retrofit.create(NewsApi.class);
 
         mNewsApi = retrofit.create(NewsApi.class);
     }
@@ -51,7 +49,6 @@ public class RetrofitDataAgent implements NewsDataAgent {
 
     @Override
     public void loadNews() {
-
 
         Call<GetNewsResponse> getNewsResponseCall = mNewsApi.loadNews(1,"b002c7e1a528b7cb460933fc2875e916");
 

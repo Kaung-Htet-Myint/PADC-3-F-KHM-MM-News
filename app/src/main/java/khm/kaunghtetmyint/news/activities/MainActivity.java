@@ -112,8 +112,11 @@ public class MainActivity extends AppCompatActivity implements NewsActionDelegat
     }
 
     @Override
-    public void onTapNewsItem() {
+    public void onTapNewsItem(NewsVO newsVO) {
+
+
         Intent intent = new Intent(getApplication(),NewsDetailsActivity.class);
+        intent.putExtra("news_id",newsVO.getNewsID());
         startActivity(intent);
     }
 
