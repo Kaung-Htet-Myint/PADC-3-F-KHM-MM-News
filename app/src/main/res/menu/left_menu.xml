@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/menu_all_news"
+        android:title="@string/menu_item_all_news"
+        android:icon="@drawable/ic_collections_black_24dp"
+        android:iconTint="#0F0"/>
+
+    <item
+        android:id="@+id/menu_news_by_categories"
+        android:title="@string/menu_item_news_by_category"
+        android:icon="@drawable/ic_unarchive_black_24dp"
+        android:iconTint="#0F0"/>
+
+</menu>

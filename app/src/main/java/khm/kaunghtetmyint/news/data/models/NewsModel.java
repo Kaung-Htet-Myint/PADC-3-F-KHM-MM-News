@@ -42,6 +42,7 @@ public class NewsModel {
    }    */
 
    private NewsModel(){
+
        mDataAgent = RetrofitDataAgent.getsObjectInstance();
        mNews = new HashMap<>();
 

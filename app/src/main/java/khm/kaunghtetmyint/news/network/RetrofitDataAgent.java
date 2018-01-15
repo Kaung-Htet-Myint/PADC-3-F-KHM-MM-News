@@ -1,5 +1,7 @@
 package khm.kaunghtetmyint.news.network;
 
+import android.util.Log;
+
 import com.google.gson.Gson;
 
 import org.greenrobot.eventbus.EventBus;
@@ -64,9 +66,8 @@ public class RetrofitDataAgent implements NewsDataAgent {
 
             @Override
             public void onFailure(Call<GetNewsResponse> call, Throwable t) {
-
+                Log.e("Reftofit:","Retrofit Network Call Failed.");
             }
         });
-
     }
 }

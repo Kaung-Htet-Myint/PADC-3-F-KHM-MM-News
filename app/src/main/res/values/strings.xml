@@ -34,4 +34,7 @@
     <string name="content_news_2">Kane reveals sacrifices behind beating Messi, Ronaldo</string>
     <string name="content_news_3">Onefootball Podcast: Transfers! Transfers! (and some football stuff)</string>
     <string name="content_news_4">Hazzard Back but Arsenal too soon for Barkley</string>
+
+    <string name="menu_item_all_news">All News</string>
+    <string name="menu_item_news_by_category">News By Category</string>
 </resources>

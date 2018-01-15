@@ -3,8 +3,12 @@ package khm.kaunghtetmyint.news.activities;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.NavigationView;
 import android.support.design.widget.Snackbar;
+import android.support.v4.view.GravityCompat;
+import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -44,6 +48,12 @@ public class MainActivity extends AppCompatActivity implements NewsActionDelegat
     @BindView(R.id.fab)
     FloatingActionButton floatingActionButton;
 
+    @BindView(R.id.navigation_view)
+    NavigationView navigationView;
+
+    @BindView(R.id.drawer_layout)
+    DrawerLayout drawerLayout;
+
     private NewsAdapters mNewAdapter;
 
     @Override
@@ -53,6 +63,11 @@ public class MainActivity extends AppCompatActivity implements NewsActionDelegat
         ButterKnife.bind(this, this);
 
         setSupportActionBar(toolBar);
+
+        if (getSupportActionBar() != null){
+            getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_menu_white_24dp);
+            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        }
 
         mNewAdapter = new NewsAdapters(this);
 
@@ -69,6 +84,30 @@ public class MainActivity extends AppCompatActivity implements NewsActionDelegat
 
         NewsModel.getsObjInstance().loadNews();
 
+        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                if(item.getItemId() == R.id.menu_news_by_categories){
+
+                    item.setChecked(true);
+                    Intent intent = NewsByCategoryActivity.newIntent(getApplicationContext());
+                    startActivity(intent);
+
+                }else if((item.getItemId() == R.id.menu_all_news)){
+                    item.setChecked(true);
+                    Intent intent = MainActivity.newIntent(getApplicationContext());
+                    startActivity(intent);
+                }
+                drawerLayout.closeDrawer(GravityCompat.START);
+
+                return false;
+            }
+        });
+    }
+
+    public static Intent newIntent(Context context){
+        Intent intent = new Intent(context, MainActivity.class);
+        return intent;
     }
 
     @Override
@@ -100,6 +139,8 @@ public class MainActivity extends AppCompatActivity implements NewsActionDelegat
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
             return true;
+        }else if (id == android.R.id.home){
+            drawerLayout.openDrawer(GravityCompat.START);
         }
 
         return super.onOptionsItemSelected(item);
